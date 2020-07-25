@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-input-button-unit',
@@ -7,9 +7,10 @@ import { Component, OnInit } from '@angular/core';
     <input
       #inputElementRef
       [value]="title"
-      (keyup.enter)="changeTitle($event.target.value)"
+      (keyup.enter)="submitValue($event.target.value)"
     />
-    <button (click)="changeTitle(inputElementRef.value)">
+
+    <button (click)="submitValue(inputElementRef.value)">
       Save
     </button>
   `,
@@ -18,18 +19,24 @@ import { Component, OnInit } from '@angular/core';
 export class InputButtonUnitComponent implements OnInit {
   title: string;
 
+  @Output() submit: EventEmitter<string> = new EventEmitter();
+
   constructor() {
-    this.changeTitle('I like Angular');
+    // this.changeTitle('I like Angular');
   }
 
   ngOnInit(): void {
-    this.changeTitle('Angular CLI Rules.');
+    // this.changeTitle('Angular CLI Rules.');
     // setTimeout(() => {
     //   this.changeTitle('This is not the title you are looking for');
     // }, 3000);
   }
 
   changeTitle(newTitle: string) {
-    this.title = newTitle;
+    this.submit.emit(newTitle);
+  }
+
+  submitValue(newTitle: string) {
+    this.submit.emit(newTitle);
   }
 }
