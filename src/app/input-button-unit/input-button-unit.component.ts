@@ -5,12 +5,13 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
   // templateUrl: './input-button-unit.component.html',
   template: `
     <input
+      class="todo-input"
       #inputElementRef
       [value]="title"
       (keyup.enter)="submitValue($event.target.value)"
     />
 
-    <button (click)="submitValue(inputElementRef.value)">
+    <button (click)="submitValue(inputElementRef.value)" class="btn">
       Save
     </button>
   `,

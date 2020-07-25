@@ -5,13 +5,14 @@ import { TodoItem } from '../interfaces/todo-item';
   selector: 'app-list-manager',
   // templateUrl: './list-manager.component.html',
   template: `
-    <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
-
-    <ul>
-      <li *ngFor="let todoItem of todoList">
-        <app-todo-item [item]="todoItem"></app-todo-item>
-      </li>
-    </ul>
+    <div class="todo-app">
+      <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
+      <ul>
+        <li *ngFor="let todoItem of todoList">
+          <app-todo-item [item]="todoItem"></app-todo-item>
+        </li>
+      </ul>
+    </div>
   `,
 
   styleUrls: ['./list-manager.component.css'],

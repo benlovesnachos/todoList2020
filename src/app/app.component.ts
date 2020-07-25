@@ -5,7 +5,7 @@ import { TodoItem } from './interfaces/todo-item';
   selector: 'app-root',
   // templateUrl: './app.component.html',
   template: `
-    <h1>Welcome to {{ title }}!</h1>
+    <h1 class="app-title">Welcome to {{ title }}!</h1>
     <app-list-manager></app-list-manager>
   `,
   styleUrls: ['./app.component.css'],
